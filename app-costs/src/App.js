@@ -1,20 +1,20 @@
-import ConstItem from "./components/ConstItem";
+import ViewCost from "./components/ViewCost";
 
 function App() {
 
   const cost = [
     {
-      data: new Date(2022, 2, 12),
+      date: new Date(2022, 2, 12),
       discription: 'Холодильник',
       amount: 120.8
     },
     {
-      data: new Date(2021, 11, 12),
+      date: new Date(2021, 11, 12),
       discription: 'Компуктер',
       amount: 1254.72
     },
     {
-      data: new Date(2022, 5, 12),
+      date: new Date(1997, 10, 6),
       discription: 'Свитер',
       amount: 51.3
     }
@@ -23,21 +23,7 @@ function App() {
   return (
     <div className="App">
         <h1>Изучение React</h1>
-        <ConstItem 
-          data={cost[0].data} 
-          discription={cost[0].discription} 
-          amount={cost[0].amount}>
-        </ConstItem>
-        <ConstItem 
-          data={cost[1].data} 
-          discription={cost[1].discription} 
-          amount={cost[1].amount}>
-        </ConstItem>
-        <ConstItem 
-          data={cost[2].data} 
-          discription={cost[2].discription} 
-          amount={cost[2].amount}>
-        </ConstItem>
+        <ViewCost cost={cost} />
     </div>
   );
 }

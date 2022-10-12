@@ -1,9 +1,12 @@
-import './ConstItem.css';
+import './CostItem.css';
+import './CostDate';
+import CostDate from './CostDate';
 
-function ConstItem(props) {
+function CostItem(props) {
+
     return (
     <div className='cost-item'>
-        <div>{props.date.toISOString()}</div>
+        <CostDate date={props.date}/>
         <div className='cost-item__description'>
             <h2>{props.discription}</h2>
             <div className='cost-item__price'>${props.amount}</div>
@@ -11,4 +14,4 @@ function ConstItem(props) {
     </div>);
 }
 
-export default ConstItem;
+export default CostItem;
