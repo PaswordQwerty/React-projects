@@ -1,6 +1,6 @@
-import ViewCost from "./components/ViewCost";
+import ViewCost from "./components/Cost/ViewCost";
 
-function App() {
+const App = () => {
 
   const cost = [
     {

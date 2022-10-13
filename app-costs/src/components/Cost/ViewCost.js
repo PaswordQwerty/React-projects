@@ -1,9 +1,10 @@
+import Card from "../UI/Card";
 import CostItem from "./CostItem";
 import './ViewCost.css';
 
-function ViewCost(props){
+const ViewCost = (props) => {
     return (
-    <div className="costs">
+    <Card className="costs">
         <CostItem 
           date={props.cost[0].date} 
           discription={props.cost[0].discription} 
@@ -19,7 +20,7 @@ function ViewCost(props){
           discription={props.cost[2].discription} 
           amount={props.cost[2].amount}
         />
-    </div>);
+    </Card>);
 }
 
 export default ViewCost;
