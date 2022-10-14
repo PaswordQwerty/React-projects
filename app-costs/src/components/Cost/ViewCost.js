@@ -1,26 +1,31 @@
 import Card from "../UI/Card";
-import CostItem from "./CostItem";
+import CostsFilter from "./CostsFilter";
 import './ViewCost.css';
+import { useState } from "react";
+import CostList from "./CostList";
+import CostDiagram from "./CostDiagram"
 
 const ViewCost = (props) => {
-    return (
-    <Card className="costs">
-        <CostItem 
-          date={props.cost[0].date} 
-          discription={props.cost[0].discription} 
-          amount={props.cost[0].amount}
-        />
-        <CostItem 
-          date={props.cost[1].date} 
-          discription={props.cost[1].discription} 
-          amount={props.cost[1].amount}
-        />
-        <CostItem 
-          date={props.cost[2].date} 
-          discription={props.cost[2].discription} 
-          amount={props.cost[2].amount}
-        />
-    </Card>);
+
+  const [selectedYear, setSelectedYear] = useState('2022');
+
+  const yearChangeHandler = (year) =>{
+    setSelectedYear(year);
+  }
+
+  const filteredCosts = props.cost.filter(cost =>{
+    return cost.date.getFullYear().toString() === selectedYear;
+  });
+
+  return (
+    <div>
+      <Card className="costs">
+        <CostsFilter year={selectedYear} onChangeYear={yearChangeHandler} />
+        <CostDiagram costs={filteredCosts} />
+        <CostList costs={filteredCosts} />
+      </Card >
+    </div>
+  );
 }
 
 export default ViewCost;

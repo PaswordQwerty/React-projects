@@ -1,29 +1,42 @@
 import ViewCost from "./components/Cost/ViewCost";
+import NewCost from "./components/NewCost/NewCost";
+import { useState } from "react";
+
+const INITIAL_COST = [
+  {
+    id: 'c1',
+    date: new Date(2022, 2, 12),
+    description: 'Холодильник',
+    amount: 120.8
+  },
+  {
+    id: 'c2',
+    date: new Date(2022, 11, 12),
+    description: 'Компуктер',
+    amount: 1254.72
+  },
+  {
+    id: 'c3',
+    date: new Date(2022, 10, 6),
+    description: 'Свитер',
+    amount: 51.3
+  }
+];
 
 const App = () => {
 
-  const cost = [
-    {
-      date: new Date(2022, 2, 12),
-      discription: 'Холодильник',
-      amount: 120.8
-    },
-    {
-      date: new Date(2021, 11, 12),
-      discription: 'Компуктер',
-      amount: 1254.72
-    },
-    {
-      date: new Date(1997, 10, 6),
-      discription: 'Свитер',
-      amount: 51.3
-    }
-  ];
+  const [costs, setCost] = useState(INITIAL_COST);
+
+  const addCostHandler = (cost) =>{
+    setCost(prevCosts => {
+      return [cost, ...prevCosts]
+    });
+  }
 
   return (
     <div className="App">
-        <h1>Изучение React</h1>
-        <ViewCost cost={cost} />
+        <NewCost addCost={addCostHandler} />
+        <ViewCost cost={costs} />
     </div>
   );
 }
