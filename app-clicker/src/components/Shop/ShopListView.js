@@ -21,7 +21,7 @@ const ShopListView = (props) =>{
                 value={`+${7}`}
                 />
         </div>
-        );
+    );
 }
 
 export default ShopListView;
