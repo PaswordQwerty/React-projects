@@ -2,7 +2,7 @@ import "./Stats.css"
 
 const Stats = () =>{
 
-    const imageLogo = process.env.PUBLIC_URL + "logo.png";
+    const imageLogo = process.env.PUBLIC_URL + '/img/other/logo.png';
 
     return(
     <div className="Stats">

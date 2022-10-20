@@ -2,13 +2,15 @@ import './Player.css'
 
 const Player = () =>{
 
-    const click = () =>{
+    const imagePlayer = process.env.PUBLIC_URL + '/img/Player/img_laugh.png';
+
+    const clickHandler = () =>{
         console.log("Кликнули");
-    }
+    };
 
     return (
         <div className="Player">
-            <button onClick={click}>Кликнуть</button>
+            <img className="Player__img" src={imagePlayer} onClick={clickHandler} alt="" />
         </div>
     );
 }

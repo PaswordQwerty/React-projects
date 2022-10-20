@@ -1,0 +1,12 @@
+.Shop__btn-list{
+    display: flex;
+    flex-direction: column;
+    z-index: 0;
+    margin-top: -5px;
+    position: relative;
+    
+}
+
+.Shop__btn-list-btn{
+    
+}

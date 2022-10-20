@@ -1,4 +1,5 @@
 import DiagramBar from "./components/Diagram/DiagramBar";
+import Shop from "./components/Shop/Shop";
 import Player from "./components/Player/Player";
 import Stats from "./components/Stats/Stats";
 
@@ -8,6 +9,7 @@ function App() {
       <Stats />
       <DiagramBar />
       <Player />
+      <Shop />
     </div>
   );
 }
