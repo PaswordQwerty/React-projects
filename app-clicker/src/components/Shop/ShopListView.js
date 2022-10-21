@@ -8,17 +8,20 @@ const ShopListView = (props) =>{
             <BtnItem 
                 img={process.env.PUBLIC_URL + 'img/shop/bamboo.png'} 
                 name={'Палка бамбука'} 
-                value={`+${1}`}
+                price={`${5}`}
+                value={`${1}`}
                 />
             <BtnItem 
                 img={process.env.PUBLIC_URL + 'img/shop/flowers.png'} 
                 name={'Цветы'} 
-                value={`+${3}`}
+                price={`${10}`}
+                value={`${3}`}
                 />
             <BtnItem 
                 img={process.env.PUBLIC_URL + 'img/shop/fruits.png'} 
                 name={'Фрукты'} 
-                value={`+${7}`}
+                price={`${15}`}
+                value={`${7}`}
                 />
         </div>
     );

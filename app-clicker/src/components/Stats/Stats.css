@@ -28,6 +28,7 @@
 
 .Stats-info__text{
     height: 38px;
+    margin-left: 6px;
     background-color: #B9EA6A;
     color: #7db723;
     display: flex;
