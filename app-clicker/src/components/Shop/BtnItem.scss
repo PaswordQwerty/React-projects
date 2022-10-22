@@ -1,0 +1,114 @@
+@mixin text-stroke {
+    -webkit-text-stroke-width: 1px;
+    -webkit-text-stroke-color: #3c5f19;
+}
+
+@mixin align-div {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    flex-direction: row;
+}
+
+@mixin align-column {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+@mixin btn-c1-h3 {
+    @include text-stroke;
+    font-size: 22px;
+    color: #ffffff;
+    margin: 0;
+}
+
+.Shop__main-cont__mod{
+    display: flex;
+    background-color: #FBFF8E;
+    height: 90px;
+    border: 1px solid #87AE60;
+    width: 402px;
+    justify-content: space-between;
+
+    &:last-child{
+        border-radius: 0px 0px 6px 6px;
+    }
+}
+
+.Shop__main-cont__mod-btn{
+    display: flex;
+    cursor: pointer;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+    background: linear-gradient(180deg, rgba(142, 254, 0, 0.53) 0%, rgba(220, 245, 144, 0.53) 100%);
+    box-shadow: 0px 0px 2px 1px rgba(0, 0, 0, 0.25);
+    border: 1px solid #475206;
+    border-radius: 6px;
+    width: 170px;
+    margin: 9px;
+}
+
+.Shop__main-cont__mod-info{
+    display: flex;
+    width: 220px;
+    align-items: center;
+
+    h3{
+        font-weight: 700;
+        color: #87AE60;
+    }
+    img{
+        padding-left: 15px;
+    }
+}
+
+.Shop__main-cont__mod-btn-c1{
+    @include align-column;
+    border-right: 1px dashed #475206;
+
+    div{
+        @include align-div;
+
+        img{
+            width: 30px;
+        }
+
+        h2{
+            margin: 10px;
+            font-size: 20px;
+            color: #FFFFFF;
+            @include text-stroke;
+        }
+    }
+    
+    h3{
+        @include btn-c1-h3;
+    }
+}
+
+.Shop__main-cont__mod-btn-c2{
+    @include align-column;
+
+    div{
+        @include align-div;
+
+        img{
+            width: 30px;
+            margin-top: -12px;
+        }
+
+        h2{
+            @include text-stroke;
+            margin: 5px;
+            font-size: 27px;
+            color: #FFFFFF; 
+        }
+    }
+
+    h3{
+        @include btn-c1-h3;
+    }
+}

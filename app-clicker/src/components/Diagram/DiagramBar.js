@@ -1,4 +1,4 @@
-import './DiagramBar.css'
+import './DiagramBar.scss'
 
 const DiagramBar = () =>{
     return (

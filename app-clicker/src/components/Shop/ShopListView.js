@@ -1,28 +1,31 @@
 import BtnItem from './BtnItem';
-import './ShopListView.css'
+import './ShopListView.scss'
+import { useContext } from 'react';
+import { Context } from '../../context.js';
 
-const ShopListView = (props) =>{
+const ShopListView = () =>{
+    const { modsData } = useContext(Context);
+
+    const modsList = modsData.map(item => 
+        <BtnItem
+            key={item.name}
+            img={item.img} name={item.name} 
+            price={item.price} 
+            value={item.value}
+        />);
+
+    
 
     return (
-        <div className='Shop__btn-list'>
-            <BtnItem 
-                img={process.env.PUBLIC_URL + 'img/shop/bamboo.png'} 
-                name={'Палка бамбука'} 
-                price={`${5}`}
-                value={`${1}`}
-                />
-            <BtnItem 
-                img={process.env.PUBLIC_URL + 'img/shop/flowers.png'} 
-                name={'Цветы'} 
-                price={`${10}`}
-                value={`${3}`}
-                />
-            <BtnItem 
-                img={process.env.PUBLIC_URL + 'img/shop/fruits.png'} 
-                name={'Фрукты'} 
-                price={`${15}`}
-                value={`${7}`}
-                />
+        <div className='Shop__main-cont' >
+            {modsList}
+            
+            {<BtnItem
+                key={"Ресет"}
+                name={'Закончить игру'} 
+                price={500} 
+                value='+'
+            />}
         </div>
     );
 }
