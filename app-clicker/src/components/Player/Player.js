@@ -13,18 +13,11 @@ const Player = () =>{
         clickVisible.current = !clickVisible.current;
         // // console.log(clickVisible); // для анимаций
 
-        if(modBaboo === 0)
-        {
-            setBamboo(bamboo => bamboo + 1);
-            console.log(`Нанесли дамаг: 1`);
-        }
-        else
-        {
-            const TotalAmount = bamboo + modBaboo;
-            setBamboo(TotalAmount);
-            console.log(`Нанесли дамаг: ${modBaboo}`);
-        }
+        // сделать оптимизацию value провайдера
         
+        const TotalAmount = bamboo + modBaboo;
+        setBamboo(TotalAmount);
+        console.log(`Нанесли дамаг: ${modBaboo}`);  
     };
 
     return (

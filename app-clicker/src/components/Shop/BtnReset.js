@@ -1,22 +1,18 @@
 import './BtnItem.scss'
-import { useContext, useEffect } from 'react';
+import { useContext } from 'react';
 import { Context } from '../../context.js';
 
-const BtnItem = (props) =>{
+const BtnReset = (props) =>{
 
-    const { linkImg, bamboo, setBamboo, modBaboo, setModBaboo } = useContext(Context);
-    
+    const { bamboo, linkImg, setBamboo, setModBaboo } = useContext(Context);
+
     const clickHandler = () =>{
         if(bamboo >= props.price)
         {
-            setBamboo(count => count - Number(props.price));
-            setModBaboo(count => count + Number(props.value)); 
+            setBamboo(count => count = 1000);
+            setModBaboo(count => count = 1); 
         }
     }
-
-    useEffect(() => {
-        console.log(`клик сейчас равен: ${modBaboo}`);
-    }, [modBaboo]);
 
     return(
         <div className='Shop__main-cont__mod'>
@@ -34,14 +30,11 @@ const BtnItem = (props) =>{
                 </div>
                 <div className='Shop__main-cont__mod-btn-c2'>
                     <h3>Бонус</h3>
-                    <div>
-                        <img src={linkImg.tapImg} alt="" />
-                        <h2>+{props.value}</h2>
-                    </div>
+                    <h3>?</h3>
                 </div>
             </button>
         </div>
     );
 }
 
-export default BtnItem;
+export default BtnReset;

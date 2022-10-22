@@ -1,4 +1,5 @@
 import BtnItem from './BtnItem';
+import BtnReset from './BtnReset';
 import './ShopListView.scss'
 import { useContext } from 'react';
 import { Context } from '../../context.js';
@@ -14,17 +15,15 @@ const ShopListView = () =>{
             value={item.value}
         />);
 
-    
-
     return (
         <div className='Shop__main-cont' >
             {modsList}
-            
-            {<BtnItem
-                key={"Ресет"}
+
+            {<BtnReset 
+                key={"Reset"}
                 name={'Закончить игру'} 
-                price={500} 
-                value='+'
+                price={50}
+                value={0} 
             />}
         </div>
     );

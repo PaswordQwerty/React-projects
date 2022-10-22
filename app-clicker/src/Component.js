@@ -5,8 +5,13 @@ import { Context } from "./context";
 
 const Component = () =>{
     const [bamboo, setBamboo] = useState(0);
-    const [modBaboo, setModBaboo] = useState(0);
+    const [modBaboo, setModBaboo] = useState(1);
 
+    const linkImg = {
+        bambooImg: process.env.PUBLIC_URL + 'img/shop/bamboo2.png',
+        tapImg: process.env.PUBLIC_URL + 'img/shop/tap.png'
+    };
+    
     const modsData = [
         {
             img: process.env.PUBLIC_URL + 'img/shop/bamboo.png',
@@ -23,7 +28,7 @@ const Component = () =>{
     ];
 
     return(
-        <Context.Provider value={ {bamboo, setBamboo, modBaboo, setModBaboo, modsData} }>
+        <Context.Provider value={ {linkImg, bamboo, setBamboo, modBaboo, setModBaboo, modsData} }>
             <App />
         </Context.Provider>
     );
