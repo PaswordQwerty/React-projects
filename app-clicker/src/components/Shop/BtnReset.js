@@ -1,10 +1,10 @@
 import './BtnItem.scss'
-import { useContext } from 'react';
+import { useContext, useEffect } from 'react';
 import { Context } from '../../context.js';
 
 const BtnReset = (props) =>{
 
-    const { bamboo, linkImg, setBamboo, setModBaboo } = useContext(Context);
+    const { bamboo, modBaboo, linkImg, setBamboo, setModBaboo } = useContext(Context);
 
     const clickHandler = () =>{
         if(bamboo >= props.price)
@@ -13,6 +13,12 @@ const BtnReset = (props) =>{
             setModBaboo(count => count = 1); 
         }
     }
+
+    useEffect(() => {
+        console.log(`клик сейчас равен: ${modBaboo}`);
+        localStorage.setItem('setBamboo', JSON.stringify(modBaboo));
+        localStorage.setItem('count', JSON.stringify(bamboo));
+    }, [bamboo,modBaboo]);
 
     return(
         <div className='Shop__main-cont__mod'>

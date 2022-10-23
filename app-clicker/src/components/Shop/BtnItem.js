@@ -5,7 +5,7 @@ import { Context } from '../../context.js';
 const BtnItem = (props) =>{
 
     const { linkImg, bamboo, setBamboo, modBaboo, setModBaboo } = useContext(Context);
-    
+
     const clickHandler = () =>{
         if(bamboo >= props.price)
         {
@@ -16,7 +16,9 @@ const BtnItem = (props) =>{
 
     useEffect(() => {
         console.log(`клик сейчас равен: ${modBaboo}`);
-    }, [modBaboo]);
+        localStorage.setItem('setBamboo', JSON.stringify(modBaboo));
+        localStorage.setItem('count', JSON.stringify(bamboo));
+    }, [bamboo,modBaboo]);
 
     return(
         <div className='Shop__main-cont__mod'>

@@ -7,20 +7,4 @@
     margin-left: -38px;
     width: 233px;
     cursor: pointer;
-
-    animation-name: click;
-    animation-duration: 0.5s;
-    animation-direction: alternate;
-}
-
-@keyframes click{
-    0% {     
-        transform: scale(1, 1);
-    }   
-    50% {     
-        transform: scale(0.8, 0.8);
-    } 
-    100% {
-        transform: scale(1, 1);
-    }
 }

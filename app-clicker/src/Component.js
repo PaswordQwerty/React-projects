@@ -4,8 +4,12 @@ import { Context } from "./context";
 
 
 const Component = () =>{
-    const [bamboo, setBamboo] = useState(0);
-    const [modBaboo, setModBaboo] = useState(1);
+
+    const loadCount = localStorage.getItem('count');
+    const loadMod = localStorage.getItem('setBamboo');
+
+    const [bamboo, setBamboo] = useState(JSON.parse(loadCount) || 0);
+    const [modBaboo, setModBaboo] = useState(JSON.parse(loadMod) || 1);
 
     const linkImg = {
         bambooImg: process.env.PUBLIC_URL + 'img/shop/bamboo2.png',
