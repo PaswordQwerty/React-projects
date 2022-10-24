@@ -9,7 +9,6 @@ const Player = () =>{
     const { bamboo, setBamboo, modBaboo } = useContext(Context);
 
     const clickHandler = () =>{
-        // сделать оптимизацию value провайдера
         
         const TotalAmount = bamboo + modBaboo;
         setBamboo(TotalAmount);
