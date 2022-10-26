@@ -1,4 +1,6 @@
-import BtnTheme from './UI/BtnTheme'
+import BtnTheme from '../UI/BtnTheme'
+import '../fonts/font.css'
+import './TaskInfo.scss'
 
 const TaskInfo = () => {
     return (
@@ -7,7 +9,7 @@ const TaskInfo = () => {
                 <BtnTheme />
             </div>
             <div>
-                <h1>Todo list</h1>
+                <h1 className='todo-text'>Todo List</h1>
             </div>
         </div>
     );

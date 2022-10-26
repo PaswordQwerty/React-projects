@@ -1,5 +1,5 @@
 import './App.css';
-import TaskInfo from './components/TaskInfo';
+import TaskInfo from './components/InputForm/TaskInfo';
 import InputForm from './components/InputForm/InputForm';
 
 function App() {
