@@ -6,15 +6,18 @@ const Data = () =>{
     const [task, setTask] = useState([
         {
             id:'1',
-            text:'Пурыльня'
+            text:'Купить молока',
+            completed: false
         },
         {
             id:'2',
-            text:'Писец'
+            text:'Сходить за хлебом',
+            completed: false
         },
         {
             id:'3',
-            text:'Что-то'
+            text:'Сделать домашнее задание',
+            completed: false
         }
     ]);
 
