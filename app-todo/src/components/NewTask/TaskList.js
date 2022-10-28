@@ -1,8 +1,9 @@
 import TaskItem from "./TaskItem";
+import './TaskList.scss'
 
 const TaskList = () =>{
     return (
-        <div>
+        <div className='TaskList'>
             <TaskItem />
             <TaskItem />
             <TaskItem />
