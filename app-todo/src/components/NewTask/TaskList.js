@@ -1,53 +1,49 @@
 import './TaskList.scss'
-// useContext, 
 import { useEffect, useState } from 'react';
-// import { Context } from '../../context';
 import TaskItem from './TaskItem';
-import { 
-    collection, 
-    query,
-    onSnapshot
-} from 'firebase/firestore';
+
+import { collection, query,onSnapshot } from 'firebase/firestore';
 import { db } from '../../firebase';
 
 const TaskList = () =>{
-    // const {task} = useContext(Context);
-
     const [todos, setTodos] = useState([])
-    
-    // const taskList = task.map(
-    //     (item)=>
-    //         <TaskItem 
-    //         key={item.id}
-    //         text={item.text} 
-    //     />)
 
     useEffect(()=>{
-        const q = query(collection(db, 'todos'));
-        const unsub = onSnapshot(q, (querySnaphot)=>{
+        getTodos()
+    }, [])
+
+    const getTodos = async () =>{
+        const data = await query(collection(db, 'todos'));
+        onSnapshot(data, (querySnaphot)=>{
             const array = [];
             querySnaphot.forEach((doc)=>{
-                array.push({...doc.data(), id:doc.id});
+                array.unshift({...doc.data(), id:doc.id});
             })
+            array.sort((a, b) => new Date(a.date) - new Date(b.date))
             setTodos(array)
         });
-        return () => unsub;
-    },[]);
+    }
 
-    // const ResultFail = () =>{
-    //     return (
-    //         <p className="TaskList-fallback">Задач пока нет, попробуй добавить новую задачу!</p>
-    // )};
+    const ResultFail = () =>{
+        return (
+            <p className="TaskList-fallback">Задач пока нет, попробуй добавить новую задачу!</p>
+    )};
+
+    const ResultSuccessful = () =>{
+        return (
+            todos.map(todo =>
+            <TaskItem 
+                date={todo.date}
+                id={todo.id}
+                key={todo.key} 
+                title={todo.title} 
+                completed={todo.completed}
+            />)
+    )}
 
     return (
         <div className='TaskList'>
-            {todos.map((todo) =>
-                <TaskItem 
-                    key={todo.title} 
-                    text={todo.title} 
-                />
-            )}
-            
+            {todos.length === 0 ? <ResultFail /> : <ResultSuccessful />}
         </div>
     );
 }
