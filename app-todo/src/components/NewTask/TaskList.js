@@ -19,7 +19,8 @@ const TaskList = () =>{
             querySnaphot.forEach((doc)=>{
                 array.unshift({...doc.data(), id:doc.id});
             })
-            array.sort((a, b) => new Date(a.date) - new Date(b.date))
+            let s = array.sort((a, b)=>  b.date - a.date )
+            s.forEach(item => console.log(item.date.toLocaleString()))
             setTodos(array)
         });
     }

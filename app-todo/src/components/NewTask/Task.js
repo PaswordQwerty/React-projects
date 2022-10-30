@@ -1,6 +1,6 @@
 import './Task.scss'
 import { db } from '../../firebase';
-import { addDoc, collection } from 'firebase/firestore';
+import { addDoc, collection, Timestamp  } from 'firebase/firestore';
 import { useState } from 'react';
 
 const Task = () =>{
@@ -10,10 +10,8 @@ const Task = () =>{
     const sendInFireBase = async (e) =>{
         setTitle(e.target.value)
 
-        const date = new Date();
-
         await addDoc(collection(db, "todos"), {
-            date: date.toLocaleString(),
+            date: Timestamp.fromDate(new Date()),
             key: Math.random().toString(),
             title: title,
             completed: false
