@@ -7,20 +7,8 @@ const CostForm = (props) =>{
     const [inputAmount, setInputAmount] = useState('');
     const [inputDate, setInputDate] = useState('');
 
-    // const [userInput, setUserInput] = useState({
-    //     name: '',
-    //     amount: '',
-    //     date: ''
-    // });
-
     const nameChangeHandler = (event) =>{
         setInputName(event.target.value);
-        // setUserInput((previosState) => {
-        //     return {
-        //         ...previosState,
-        //         name: event.target.value
-        //     }
-        // })
     };
 
     const amountChangeHandler = (event) =>{
