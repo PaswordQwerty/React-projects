@@ -2,15 +2,19 @@ import './TaskList.scss'
 import { useEffect, useState } from 'react';
 import TaskItem from './TaskItem';
 
-import { collection, query,onSnapshot } from 'firebase/firestore';
+import { collection, query, onSnapshot, getCountFromServer } from 'firebase/firestore';
 import { db } from '../../firebase';
 
 const TaskList = () =>{
     const [todos, setTodos] = useState([])
+    const [count, setCount] = useState()
 
-    useEffect(()=>{
-        getTodos()
-    }, [])
+    const countCollections = async () =>{
+        const coll = collection(db, "todos");
+        const snapshot = await getCountFromServer(coll)
+        
+        setCount(()=>snapshot.data().count)
+    }
 
     const getTodos = async () =>{
         const data = await query(collection(db, 'todos'));
@@ -24,14 +28,8 @@ const TaskList = () =>{
         });
     }
 
-    const ResultFail = () =>{
-        return (
-            <p className="TaskList-fallback">Задач пока нет, попробуй добавить новую задачу!</p>
-    )};
-
     const ResultSuccessful = () =>{
-        return (
-            todos.map(todo =>
+        return todos.map(todo =>
             <TaskItem 
                 date={todo.date}
                 id={todo.id}
@@ -39,11 +37,17 @@ const TaskList = () =>{
                 title={todo.title} 
                 completed={todo.completed}
             />)
-    )}
+    }
+    
+    useEffect(()=>{  
+        countCollections();
+        getTodos()
+    }, [])
 
     return (
         <div className='TaskList'>
-            {todos.length === 0 ? <ResultFail /> : <ResultSuccessful />}
+            {count === 0 && <p className="TaskList-fallback">Задач пока нет, добавь новую задачу!</p>}
+            {count > 0 && <ResultSuccessful/>}
         </div>
     );
 }
