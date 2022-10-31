@@ -5,3 +5,15 @@ $whiteGrayColor: #EEEEEE;
 
 $grayColor2: #6B6B6B;
 $fuzzy: 'Fuzzy Bubbles', cursive;
+
+@mixin btn-styled {
+
+    &:hover{
+        background-color: $brightBlue;
+    }
+
+    &:active
+    {
+        background-color: #09787d;
+    }
+}

@@ -16,6 +16,10 @@
     font-weight: normal;
     font-size: 20px;
     cursor: pointer;
+
+    &:hover{
+        color: $brightBlue;
+    }
 }
 
 .Task-Item-button{
@@ -30,4 +34,6 @@
     border-radius: 7px;
 
     cursor: pointer;
+
+    @include btn-styled;
 }

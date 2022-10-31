@@ -33,11 +33,12 @@
     color: $whiteGrayColor;
     font-family: $fuzzy;
     font-size: 18px;
-
-    border: 2px solid black;
     border-radius: 7px;
+    border: 0;
 
     cursor: pointer;
+
+    @include btn-styled;
 }
 
 .Task-Container{
