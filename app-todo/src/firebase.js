@@ -2,12 +2,13 @@ import {initializeApp} from 'firebase/app';
 import {getFirestore} from 'firebase/firestore';
 
 const firebaseConfig = {
-    apiKey: "AIzaSyDfbUyGPc-aTPuzxGWbEYNcf1xdSdujuz8",
-    authDomain: "todo-v-b7fd9.firebaseapp.com",
-    projectId: "todo-v-b7fd9",
-    storageBucket: "todo-v-b7fd9.appspot.com",
-    messagingSenderId: "893534776420",
-    appId: "1:893534776420:web:af6fb40d4264a818c0c371"
+    apiKey: "AIzaSyA2u4RXWBpqS7JyVxtdg7U5wnqh28w8yEk",
+    authDomain: "totolist-19f14.firebaseapp.com",
+    databaseURL: "https://totolist-19f14-default-rtdb.firebaseio.com",
+    projectId: "totolist-19f14",
+    storageBucket: "totolist-19f14.appspot.com",
+    messagingSenderId: "413524396942",
+    appId: "1:413524396942:web:df9300e1e9c9496686b2df"
   };
 
 const app = initializeApp(firebaseConfig);
