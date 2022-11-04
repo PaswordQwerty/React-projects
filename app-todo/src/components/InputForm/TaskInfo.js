@@ -1,4 +1,4 @@
-import BtnTheme from '../UI/BtnTheme'
+import BtnTheme from '../UI/BtnTheme';
 import '../fonts/font.css'
 import './TaskInfo.scss'
 
