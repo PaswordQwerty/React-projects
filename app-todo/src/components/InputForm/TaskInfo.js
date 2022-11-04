@@ -9,7 +9,7 @@ const TaskInfo = () => {
                 <BtnTheme />
             </div>
             <div>
-                <h1 className='todo-text'>Todo List22</h1>
+                <h1 className='todo-text'>Todo List223</h1>
             </div>
         </div>
     );
